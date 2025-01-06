@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite name="Test Suite Collection" parallel="tests" thread-count="2">
+        <test name="Shop Tests">
+            <classes>
+                <class name="ShopTest"/>
+            </classes>
+        </test>
+
+        <test name="Hotel Tests">
+            <classes>
+                <class name="HotelsTest"/>
+            </classes>
+        </test>
+</suite>
+
