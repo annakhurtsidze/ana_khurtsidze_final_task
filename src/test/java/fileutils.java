@@ -1,13 +1,7 @@
-package travel.actions;
-import travel.elements.FileUploadElements;
 import java.io.File;
-import java.time.Duration;
 
-import static com.codeborne.selenide.Condition.visible;
-
-public class FileUploadActions extends FileUploadElements {
-
-    public void deleteAllGeneratedInvoicesBeforeTest(String directoryPath){
+public class fileutils {
+    public static void deleteFilesAndFoldersInDirectory(String directoryPath) {
         File directory = new File(directoryPath);
 
         if (!directory.exists()) {
@@ -20,8 +14,10 @@ public class FileUploadActions extends FileUploadElements {
         if (files != null) {
             for (File file : files) {
                 if (file.isDirectory()) {
-                    deleteAllGeneratedInvoicesBeforeTest(file.getAbsolutePath());
+                    // If it's a directory, delete all files inside recursively
+                    deleteFilesAndFoldersInDirectory(file.getAbsolutePath());
                 }
+                // Delete the file or directory
                 if (file.delete()) {
                     System.out.println("Deleted: " + file.getAbsolutePath());
                 } else {
@@ -30,6 +26,7 @@ public class FileUploadActions extends FileUploadElements {
             }
         }
     }
+
 
     public static File getFirstFileInFirstDirectory() {
         // Specify the path to the Downloads folder
@@ -71,14 +68,10 @@ public class FileUploadActions extends FileUploadElements {
     }
 
 
-
-
-    public void uploadFileClick(){
-        File file = chooseFileButton.uploadFile(new File(String.valueOf(getFirstFileInFirstDirectory())));
-    }
-
-    public void clickSubmitButton(){
-        submitButton.click();
-        submitButton.shouldBe(visible, Duration.ofSeconds(15));
+    public static void main(String[] args) {
+        // Replace with the path of the folder you want to clean
+        String path = "C:\\Users\\anakhurtsidze\\Desktop\\ana_khurtsidze_final_task\\build\\downloads";
+//        deleteFilesAndFoldersInDirectory(path);
+        getFirstFileInFirstDirectory();
     }
 }

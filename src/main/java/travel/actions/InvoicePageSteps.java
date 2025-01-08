@@ -21,6 +21,6 @@ public class InvoicePageSteps extends InvoicePageElements {
         js.executeScript("window.scrollTo(0, document.body.scrollHeight);");
         downloadInvoiceButton.scrollIntoView(true);
         downloadInvoiceButton.shouldBe(clickable).click();
-        downloadInvoiceButton.shouldBe(visible, Duration.ofSeconds(30));
+        downloadInvoiceButton.shouldBe(visible, Duration.ofSeconds(60));
     }
 }

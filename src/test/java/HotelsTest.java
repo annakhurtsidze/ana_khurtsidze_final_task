@@ -53,16 +53,16 @@ public class HotelsTest extends SetUpClass {
     }
     @Test(priority = 4)
     public void testUserCanDownloadInvoice(){
+        fileUploadActions.deleteAllGeneratedInvoicesBeforeTest(HotelTestData.DOWNLOADS_DIRECTORY_PATH);
         invoicePageSteps.assertThatInvoiceQrIsPresented();
         invoicePageSteps.clickDownloadInvoice();
     }
 
-//    @Test
-//    public void testUserCanUploadFile(){
-//        open("https://webdriveruniversity.com/File-Upload/index.html");
-//        FileUploadActions fileUploadActions = new FileUploadActions();
-//        fileUploadActions.uploadFileClick();
-//        fileUploadActions.clickSubmitButton();
-//    }
+    @Test(priority = 5)
+    public void testUserCanUploadFile(){
+        open("https://webdriveruniversity.com/File-Upload/index.html");
+        fileUploadActions.uploadFileClick();
+        fileUploadActions.clickSubmitButton();
+    }
 
 }

@@ -18,6 +18,7 @@ public class SetUpClass {
    public RoomPageSteps roomPageSteps;
     public BookingPageSteps bookingPageSteps;
     public InvoicePageSteps invoicePageSteps;
+    public FileUploadActions fileUploadActions;
 
     @BeforeClass
     public void openBrows(){
@@ -38,5 +39,6 @@ public class SetUpClass {
         roomPageSteps =new RoomPageSteps();
         bookingPageSteps = new BookingPageSteps();
         invoicePageSteps = new InvoicePageSteps();
+        fileUploadActions = new FileUploadActions();
     }
 }
